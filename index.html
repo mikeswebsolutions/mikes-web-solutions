@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikes Web Solutions | Revenue-Driven Digital Experiences</title>
     
+    <!-- SEO META TAGS -->
+    <title>Mikes Web Solutions | High-Converting SaaS Web Design & UI/UX</title>
+    <meta name="description" content="We build revenue-driven digital experiences for startups and SaaS companies. Specializing in high-converting landing pages, performance SEO, and premium UI/UX design that scales your business.">
+    <meta name="keywords" content="SaaS web design, high converting websites, UI/UX for startups, revenue driven web development, landing page agency, conversion rate optimization">
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Poppins & Inter -->
@@ -16,102 +20,91 @@
     
     <style>
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #111111;
-            --accent-blue: #00aaff;
+            --bg-light: #f7f9fc;
+            --accent-blue: #2563eb;
+            --text-dark: #111827;
         }
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: white; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
             -webkit-font-smoothing: antialiased;
         }
         h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
         
-        /* Premium Glassmorphism */
-        .glass { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(16px); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        /* Premium SaaS Shadows */
+        .saas-card { 
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            border-radius: 15px;
+        }
+        .saas-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        /* Dynamic Glows */
-        .blue-glow { 
-            background: radial-gradient(circle, rgba(0, 170, 255, 0.25) 0%, rgba(10, 10, 10, 0) 70%); 
-        }
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, #00aaff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Button Animations */
+        /* Button Styles */
         .btn-primary {
-            background: linear-gradient(45deg, #00aaff, #0066ff);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            background-color: var(--accent-blue);
+            transition: all 0.3s ease;
         }
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 170, 255, 0.5);
-            filter: brightness(1.1);
+            background-color: #1d4ed8;
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
         }
 
-        /* Floating Animation for Hero Image */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(1deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        /* Hero Image Grid */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Card Lift Effect */
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .card-hover:hover {
-            transform: translateY(-12px);
-            border-color: rgba(0, 170, 255, 0.4);
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Portfolio Zoom */
-        .portfolio-zoom img {
-            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .portfolio-zoom:hover img {
-            transform: scale(1.1);
+        .hero-grid img {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
     </style>
 </head>
 <body x-data="{ scrolled: false, mobileMenu: false }" @scroll.window="scrolled = (window.pageYOffset > 20)">
 
-    <!-- 🧠 1. NAVBAR (Responsive & Functional) -->
-    <nav :class="scrolled ? 'glass py-3' : 'bg-transparent py-6'" 
+    <!-- 🧠 1. NAVBAR -->
+    <nav :class="scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'" 
          class="fixed w-full z-50 transition-all duration-500 px-6 md:px-12 flex justify-between items-center">
         
-        <div class="text-xl md:text-2xl font-extrabold tracking-tight">
-            Mikes Web <span class="text-blue-500">Solutions</span>
-        </div>
+    <a href="/" class="flex items-center gap-3">
+    <img
+        class="w-14 md:w-16 h-auto"
+        src="/img/black-logo.png"
+        alt="Mikes Web Solutions Logo"
+    />
+
+    <div class="leading-tight">
+        <h1 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-black">
+            Mikes<span class="text-blue-600"> Web </span>Solutions
+        </h1>
+        <p class="text-xs text-gray-500 dark:text-gray-400 tracking-wider uppercase">
+            Websites That Bring You Customers
+        </p>
+    </div>
+</a>
         
         <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-10 font-medium text-sm uppercase tracking-wider">
-            <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
-            <a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
-            <a href="#work" class="text-gray-400 hover:text-white transition-colors">Work</a>
-            <a href="#contact" class="btn-primary px-7 py-2.5 rounded-full text-sm font-bold text-white">Get Started</a>
+        <div class="hidden md:flex items-center space-x-10 font-medium text-sm text-gray-600">
+            <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
+            <a href="/services/" class="hover:text-blue-600 transition-colors">Services</a>
+            <a href="/portfolio/" class="hover:text-blue-600 transition-colors">Portfolio</a>
+            <a href="/resources/" class="hover:text-blue-600 transition-colors">Resources</a>
+            <a href="/about/" class="hover:text-blue-600 transition-colors">About Us</a>
+            <a href="/contact/" class="btn-primary px-6 py-2.5 rounded-full text-sm font-bold text-white">Start Your Project</a>
         </div>
 
         <!-- Mobile Toggle -->
@@ -122,338 +115,318 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div x-show="mobileMenu" 
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="opacity-0 -translate-y-full"
-         x-transition:enter-end="opacity-100 translate-y-0"
-         x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100 translate-y-0"
-         x-transition:leave-end="opacity-0 -translate-y-full"
-         class="fixed inset-0 z-40 bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 text-2xl font-bold md:hidden">
-        <a href="#home" @click="mobileMenu = false" class="hover:text-blue-500 transition">Home</a>
-        <a href="#services" @click="mobileMenu = false" class="hover:text-blue-500 transition">Services</a>
-        <a href="#work" @click="mobileMenu = false" class="hover:text-blue-500 transition">Our Work</a>
-        <a href="#contact" @click="mobileMenu = false" class="btn-primary px-10 py-4 rounded-full text-lg">Apply Now</a>
+    <div x-show="mobileMenu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8 text-xl font-bold md:hidden">
+        <a href="#home" @click="mobileMenu = false" class="hover:text-blue-600 transition">Home</a>
+        <a href="/services/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Services</a>
+        <a href="/portfolio/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Portfolio</a>
+        <a href="/resources/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Resources</a>
+        <a href="/about/" @click="mobileMenu = false" class="hover:text-blue-600 transition">About Us</a>
+        <a href="/contact/" @click="mobileMenu = false" class="btn-primary px-10 py-4 rounded-full text-white">Apply Now</a>
     </div>
 
-    <!-- 🚀 2. HERO SECTION (Visual Power & Floating Animation) -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
-        <!-- Background Glows -->
-        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] blue-glow rounded-full blur-3xl opacity-60"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] blue-glow rounded-full blur-3xl opacity-60"></div>
-
-        <div class="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-            <!-- Text Content -->
-            <div data-aos="fade-right" data-aos-duration="1000" class="text-center lg:text-left">
-                <div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
-                    Trusted by growth-focused brands worldwide
+    <!-- 🚀 2. HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden px-6">
+        <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- LEFT: Image Collage -->
+            <div class="relative order-1 lg:order-2" data-aos="fade-right">
+             
+                  <img src="img/hero-img.png" alt="hero image" class="w-full h-auto object-cover">
+             
+                <!-- Floating Badge -->
+                <div class="absolute -bottom-6 -right-6 saas-card p-4 flex items-center gap-3 animate-bounce">
+                    <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold">✓</div>
+                    <p class="text-sm font-bold">100% Conversion Optimized</p>
                 </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
-                    We Build <span class="text-gradient">High-Converting</span> Websites That Grow Your Business
+            </div>
+
+            <!-- RIGHT: Text Content -->
+            <div class="text-center lg:text-left order-2 lg:order-1" data-aos="fade-left">
+                <span class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 text-xs font-bold uppercase tracking-widest mb-6">
+                    The Preferred Choice for SaaS Startups
+                </span>
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
+                    Scale Your Revenue With <span class="text-blue-600">High-Converting</span> Digital Experiences
                 </h1>
-                <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Stop losing leads to outdated design. We craft high-performance digital engines that turn cold traffic into lifelong customers.
+                <p class="text-gray-600 text-lg mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    We don't just build "pretty" websites. We engineer high-performance sales machines that turn cold traffic into loyal customers and maximize your LTV.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
-                    <a href="#contact" class="btn-primary px-10 py-4 rounded-full font-bold text-center text-white w-full sm:w-auto">Apply Now</a>
-                    <a href="#work" class="px-10 py-4 rounded-full font-bold text-center border border-gray-700 hover:bg-white hover:text-black transition duration-300 w-full sm:w-auto">View Case Studies</a>
-                </div>
-            </div>
-
-            <!-- Visual Mockup -->
-            <div class="relative mt-12 lg:mt-0" data-aos="zoom-in" data-aos-duration="1200">
-                <div class="animate-float relative z-10">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-gray-900">
-                        <!-- Main Image -->
-                        <img src="https://images.unsplash.com/photo-1460925895917-b2a5347d8a2a?auto=format&fit=crop&w=1000&q=80" 
-                             alt="Premium Dashboard Mockup" class="w-full h-auto scale-105">
-                        
-                        <!-- Overlay Glass Card -->
-                        <div class="absolute top-10 -left-6 md:left-4 glass p-4 rounded-xl hidden sm:block animate-bounce" style="animation-duration: 4s">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                                </div>
-                                <p class="text-white font-bold text-sm">Conversion +142%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Blue Glow behind image -->
-                    <div class="absolute -inset-4 bg-blue-500/20 blur-3xl rounded-full -z-10"></div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="/contact/" class="btn-primary px-10 py-4 rounded-full font-bold text-white text-center">Start Your Project</a>
+                    <a href="/portfolio/" class="px-10 py-4 rounded-full font-bold text-gray-700 border border-gray-300 hover:bg-gray-100 text-center transition">View Case Studies</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 🧩 3. TRUST BAR -->
-    <section class="py-12 border-y border-gray-900 bg-[#0d0d0d]">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-500 text-xs uppercase tracking-[0.3em] mb-10">Powering the growth of global brands</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" class="h-6 md:h-8" alt="Google">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" class="h-6 md:h-8" alt="Meta">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" class="h-6 md:h-8" alt="Amazon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png" class="h-6 md:h-8" alt="Netflix">
+    <!-- 📊 3. STATS SECTION -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="saas-card p-10 text-center">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">50+</div>
+                    <div class="text-gray-500 font-medium uppercase tracking-wider text-sm">Projects Completed</div>
+                </div>
+                <div class="saas-card p-10 text-center">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">20+</div>
+                    <div class="text-gray-500 font-medium uppercase tracking-wider text-sm">Happy Clients</div>
+                </div>
+                <div class="saas-card p-10 text-center">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">3–5 Days</div>
+                    <div class="text-gray-500 font-medium uppercase tracking-wider text-sm">Average Delivery Time</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 💼 4. SERVICES (Visual Storytelling) -->
-    <section id="services" class="py-24 px-6 container mx-auto">
-        <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Revenue-Driven Digital Solutions</h2>
-            <p class="text-gray-500 max-w-2xl mx-auto">We don't just build websites; we build high-converting sales machines.</p>
-            <div class="h-1 w-20 bg-blue-500 mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div data-aos="fade-up" data-aos-delay="100" class="card-hover glass p-8 rounded-3xl group cursor-pointer">
-                <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-500 transition-all duration-300">
-                    <svg class="w-8 h-8 text-blue-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </div>
-                <img src="https://images.unsplash.com/photo-1558655146-efB9bc83a6a0?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover rounded-xl mb-6 grayscale group-hover:grayscale-0 transition-all" alt="UI Design">
-                <h3 class="text-2xl font-bold mb-4">Conversion-Focused Design</h3>
-                <p class="text-gray-400 leading-relaxed">Psychologically engineered layouts that guide users toward the 'Buy' button.</p>
+    <!-- 💼 4. ABOUT / INTRO SECTION -->
+    <section class="py-24 px-6 container mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Why Choose Mikes Web Solutions?</h2>
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                    Most agencies focus on aesthetics. We focus on <strong>Revenue</strong>. By combining psychological triggers with world-class UI/UX, we create a seamless path from visitor to paying customer.
+                </p>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3 text-gray-700 font-medium">
+                        <span class="text-blue-600 text-xl">✔</span> Data-Driven Conversion Architecture
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-700 font-medium">
+                        <span class="text-blue-600 text-xl">✔</span> Lightning Fast Page Load Speeds
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-700 font-medium">
+                        <span class="text-blue-600 text-xl">✔</span> Scalable Infrastructure for SaaS Growth
+                    </li>
+                </ul>
+                <a href="/contact/" class="btn-primary px-8 py-3 rounded-full font-bold text-white">Work With Us</a>
             </div>
-            <!-- Service 2 -->
-            <div data-aos="fade-up" data-aos-delay="200" class="card-hover glass p-8 rounded-3xl group cursor-pointer">
-                <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-500 transition-all duration-300">
-                    <svg class="w-8 h-8 text-blue-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <div class="relative" data-aos="fade-left">
+                <img src="/img/about-img.png" class="rounded-3xl shadow-2xl" alt="Our Team Working">
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl">
+                    <p class="text-sm font-bold text-gray-500 uppercase">Client Satisfaction</p>
+                    <p class="text-3xl font-extrabold text-blue-600">99.9%</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1460925895917-b2a5347d8a2a?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover rounded-xl mb-6 grayscale group-hover:grayscale-0 transition-all" alt="Landing Page">
-                <h3 class="text-2xl font-bold mb-4">High-Ticket Landers</h3>
-                <p class="text-gray-400 leading-relaxed">Dedicated lead-capture pages designed to maximize ROI and skyrocket conversion rates.</p>
-            </div>
-            <!-- Service 3 -->
-            <div data-aos="fade-up" data-aos-delay="300" class="card-hover glass p-8 rounded-3xl group cursor-pointer">
-                <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-500 transition-all duration-300">
-                    <svg class="w-8 h-8 text-blue-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <img src="https://images.unsplash.com/photo-1551288052-47359B97aH-1?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover rounded-xl mb-6 grayscale group-hover:grayscale-0 transition-all" alt="Performance">
-                <h3 class="text-2xl font-bold mb-4">Performance Optimization</h3>
-                <p class="text-gray-400 leading-relaxed">Blazing fast load speeds and precision SEO to ensure you rank #1 on Google.</p>
             </div>
         </div>
     </section>
 
-    <!-- ⚡ 5. PROCESS SECTION (Premium Timeline) -->
-    <section class="py-24 bg-[#0d0d0d] px-6">
+    <!-- 🧱 5. SERVICES -->
+    <section id="services" class="py-24 bg-gray-100 px-6">
         <div class="container mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Signature Process</h2>
-                <p class="text-gray-500">A refined 4-step framework for absolute excellence.</p>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Our Growth Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Strategic digital solutions designed to increase your conversion rate and lower your customer acquisition cost.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
-                <!-- Connector Line (Desktop only) -->
-                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-800 z-0"></div>
-
-                <!-- Step 1 -->
-                <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 font-bold text-xl shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="saas-card p-8 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        🎨
                     </div>
-                    <h4 class="text-xl font-bold mb-2">Discovery</h4>
-                    <p class="text-gray-500 text-sm px-4">Deep dive into business model and customer psychology.</p>
+                    <h3 class="text-xl font-bold mb-3">Conversion-Centric UI/UX</h3>
+                    <p class="text-gray-600 mb-6">Psychologically engineered layouts that guide users naturally toward your CTA.</p>
+                    <a href="/services/#web-design" class="text-blue-600 font-bold text-sm hover:underline">Learn More →</a>
                 </div>
-                <!-- Step 2 -->
-                <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 font-bold text-xl shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.817l-.606.606m0 0l-.606-.606m1.212 0l.606.606"></path></svg>
+                <!-- Service 2 -->
+                <div class="saas-card p-8 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        ⚡
                     </div>
-                    <h4 class="text-xl font-bold mb-2">Design</h4>
-                    <p class="text-gray-500 text-sm px-4">Building high-fidelity wireframes for maximum conversion.</p>
+                    <h3 class="text-xl font-bold mb-3">High-Performance Dev</h3>
+                    <p class="text-gray-600 mb-6">Clean, scalable code that ensures your site loads in under 2 seconds, globally.</p>
+                    <a href="/services/#optimization" class="text-blue-600 font-bold text-sm hover:underline">Learn More →</a>
                 </div>
-                <!-- Step 3 -->
-                <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 font-bold text-xl shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                <!-- Service 3 -->
+                <div class="saas-card p-8 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        📈
                     </div>
-                    <h4 class="text-xl font-bold mb-2">Development</h4>
-                    <p class="text-gray-500 text-sm px-4">Turning designs into scalable, lightning-fast clean code.</p>
-                </div>
-                <!-- Step 4 -->
-                <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 font-bold text-xl shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2">Launch</h4>
-                    <p class="text-gray-500 text-sm px-4">Deploying and monitoring for immediate business impact.</p>
+                    <h3 class="text-xl font-bold mb-3">SaaS Landing Pages</h3>
+                    <p class="text-gray-600 mb-6">Dedicated sales pages optimized for lead capture and high-ticket conversion.</p>
+                    <a href="/services/#landing-pages" class="text-blue-600 font-bold text-sm hover:underline">Learn More →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 🧪 6. PORTFOLIO (Visual Powerhouse) -->
+    <!-- 🖼️ 6. PORTFOLIO -->
     <section id="work" class="py-24 px-6 container mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6" data-aos="fade-up">
-            <div class="text-center md:text-left">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Case Studies</h2>
-                <p class="text-gray-500">Real results for real businesses.</p>
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div data-aos="fade-right">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Proven Results</h2>
+                <p class="text-gray-600">Case studies of businesses we've scaled.</p>
             </div>
-            <a href="#" class="text-blue-400 font-bold hover:text-blue-300 transition flex items-center gap-2">
-                View all projects <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </a>
+            <a href="/portfolio/" class="text-blue-600 font-bold hover:underline mb-2">View All Projects →</a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Project 1 -->
-            <div class="portfolio-zoom group relative overflow-hidden rounded-3xl bg-gray-900 h-[500px]" data-aos="zoom-in">
-                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80" 
-                     class="w-full h-full object-cover" alt="Project 1">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-80 transition-all duration-500"></div>
-                <div class="absolute bottom-0 left-0 w-full p-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 class="text-3xl font-bold mb-2">Fintech Scaleup</h3>
-                    <p class="text-gray-300 mb-6">UX Transformation & High-Performance Backend</p>
-                    <a href="#" class="inline-flex items-center gap-2 glass px-6 py-3 rounded-full text-sm font-bold hover:bg-white hover:text-black transition-all">
-                        View Case Study
-                    </a>
+            <div class="group relative overflow-hidden rounded-3xl shadow-lg" data-aos="zoom-in">
+                <img src="/img/portfolio/2.png" class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-500" alt="Case Study 1">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-2">Fintech App Landing Page</h3>
+                    <p class="text-gray-300 mb-4">Increased sign-ups by 140% in 3 months.</p>
                 </div>
             </div>
-            <!-- Project 2 -->
-            <div class="portfolio-zoom group relative overflow-hidden rounded-3xl bg-gray-900 h-[500px]" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1558655146-efB9bc83a6a0?auto=format&fit=crop&w=800&q=80" 
-                     class="w-full h-full object-cover" alt="Project 2">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-80 transition-all duration-500"></div>
-                <div class="absolute bottom-0 left-0 w-full p-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 class="text-3xl font-bold mb-2">Luxe E-Commerce</h3>
-                    <p class="text-gray-300 mb-6">Brand Identity & Shopify Plus Implementation</p>
-                    <a href="#" class="inline-flex items-center gap-2 glass px-6 py-3 rounded-full text-sm font-bold hover:bg-white hover:text-black transition-all">
-                        View Case Study
-                    </a>
+            <div class="group relative overflow-hidden rounded-3xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                <img src="/img/portfolio/1.png" class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-500" alt="Case Study 2">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-2">E-commerce SaaS Platform</h3>
+                    <p class="text-gray-300 mb-4">Reduced churn rate by 22% via UX overhaul.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 💬 7. TESTIMONIALS (Trust Builders) -->
-    <section class="py-24 bg-[#0d0d0d] px-6">
-        <div class="container mx-auto text-center mb-20" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Client Success Stories</h2>
-            <p class="text-gray-500">The results we deliver speak louder than words.</p>
+    <!-- 💬 7. TESTIMONIALS -->
+    <section class="py-24 bg-white px-6">
+        <div class="container mx-auto text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Trusted by Founders</h2>
+            <p class="text-gray-600">Real results from real business owners.</p>
         </div>
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="card-hover glass p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex text-yellow-400 mb-6">★★★★★</div>
-                <p class="text-gray-300 italic text-lg mb-8 leading-relaxed">"Mikes Web Solutions didn't just build a site; they built a sales tool. Our conversion rate jumped 30% in 30 days."</p>
+            <div class="saas-card p-8" data-aos="fade-up">
+                <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                <p class="text-gray-600 italic mb-6">"The best investment we've made this year. Our conversion rate skyrocketed immediately after launch."</p>
                 <div class="flex items-center gap-4">
-                    <img src="https://i.pravatar.cc/150?u=1" class="w-12 h-12 rounded-full border-2 border-blue-500" alt="User">
+                    <img src="https://i.pravatar.cc/150?u=1" class="w-12 h-12 rounded-full" alt="User">
                     <div class="text-left">
-                        <div class="font-bold">Alex Rivera</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-widest">CEO at TechFlow</div>
+                        <p class="font-bold">Sarah Jenkins</p>
+                        <p class="text-xs text-gray-500">CEO at Bloom SaaS</p>
                     </div>
                 </div>
             </div>
-            <div class="card-hover glass p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex text-yellow-400 mb-6">★★★★★</div>
-                <p class="text-gray-300 italic text-lg mb-8 leading-relaxed">"The attention to detail is world-class. They understood our vision and amplified it beyond our expectations."</p>
+            <div class="saas-card p-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                <p class="text-gray-600 italic mb-6">"Incredible attention to detail. Mikes Web Solutions understands the psychology of the user."</p>
                 <div class="flex items-center gap-4">
-                    <img src="https://i.pravatar.cc/150?u=2" class="w-12 h-12 rounded-full border-2 border-blue-500" alt="User">
+                    <img src="https://i.pravatar.cc/150?u=2" class="w-12 h-12 rounded-full" alt="User">
                     <div class="text-left">
-                        <div class="font-bold">Sarah Jenkins</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-widest">Founder of Bloom</div>
+                        <p class="font-bold">Mark Thompson</p>
+                        <p class="text-xs text-gray-500">Founder of Nexus</p>
                     </div>
                 </div>
             </div>
-            <div class="card-hover glass p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
-                <div class="flex text-yellow-400 mb-6">★★★★★</div>
-                <p class="text-gray-300 italic text-lg mb-8 leading-relaxed">"Fast, professional, and obsessed with quality. The best investment we've made for our digital presence."</p>
+            <div class="saas-card p-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                <p class="text-gray-600 italic mb-6">"Fast delivery, professional communication, and a site that actually makes us money."</p>
                 <div class="flex items-center gap-4">
-                    <img src="https://i.pravatar.cc/150?u=3" class="w-12 h-12 rounded-full border-2 border-blue-500" alt="User">
+                    <img src="https://i.pravatar.cc/150?u=3" class="w-12 h-12 rounded-full" alt="User">
                     <div class="text-left">
-                        <div class="font-bold">Michael Chen</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-widest">Marketing Head at Nexus</div>
+                        <p class="font-bold">Elena Rodriguez</p>
+                        <p class="text-xs text-gray-500">CMO at TechFlow</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 🧠 8. VALUE SECTION (High-Ticket Positioning) -->
-    <section class="py-24 px-6 container mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div data-aos="fade-right">
-                <h2 class="text-4xl md:text-5xl font-bold mb-10 leading-tight">Why Work With <br><span class="text-blue-500">Mikes Web Solutions?</span></h2>
-                <div class="space-y-8">
-                    <div class="flex items-start gap-6">
-                        <div class="w-6 h-6 bg-blue-500 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold">✓</div>
-                        <div>
-                            <h4 class="font-bold text-xl mb-1">Speed Without Compromise</h4>
-                            <p class="text-gray-400">We utilize agile frameworks to launch your site fast without sacrificing a single pixel of quality.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-6">
-                        <div class="w-6 h-6 bg-blue-500 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold">✓</div>
-                        <div>
-                            <h4 class="font-bold text-xl mb-1">Lean, Scalable Code</h4>
-                            <p class="text-gray-400">No bloated plugins. We write clean, optimized code that ensures your site scales as your revenue grows.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-6">
-                        <div class="w-6 h-6 bg-blue-500 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold">✓</div>
-                        <div>
-                            <h4 class="font-bold text-xl mb-1">Revenue-First Strategy</h4>
-                            <p class="text-gray-400">We don't just design for aesthetics—we design for conversions. Every element has a purpose.</p>
-                        </div>
-                    </div>
+    <!-- 📰 8. BLOG / RESOURCES -->
+    <section id="blog" class="py-24 px-6 container mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Growth Resources</h2>
+            <p class="text-gray-600">Insights on how to scale your digital presence.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="saas-card overflow-hidden group" data-aos="fade-up">
+                <img src="/img/blogs/blog1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Blog 1">
+                <div class="p-6">
+                    <p class="text-xs text-blue-600 font-bold uppercase mb-2">UI/UX Strategy</p>
+                    <h3 class="text-xl font-bold mb-3">5 Layout Secrets That Increase Conversions</h3>
+                    <p class="text-gray-600 text-sm mb-4">Learn how to guide your users from the hero section to the checkout...</p>
+                    <p class="text-xs text-gray-400">Oct 12, 2023</p>
                 </div>
             </div>
-            <div class="glass p-12 rounded-3xl relative overflow-hidden group" data-aos="fade-left">
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl group-hover:bg-blue-500/40 transition-all"></div>
-                <h3 class="text-3xl font-bold mb-6">Limited Availability</h3>
-                <p class="text-gray-400 mb-10 text-lg leading-relaxed">To ensure absolute premium quality, we only accept <strong class="text-white">3 high-ticket projects</strong> per month.</p>
-                <a href="#contact" class="btn-primary w-full block text-center py-5 rounded-2xl font-bold text-white text-lg">Apply Now</a>
+            <div class="saas-card overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                <img src="/img/blogs/development.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Blog 2">
+                <div class="p-6">
+                    <p class="text-xs text-blue-600 font-bold uppercase mb-2">Performance</p>
+                    <h3 class="text-xl font-bold mb-3">Why Speed is Your Biggest Conversion Lever</h3>
+                    <p class="text-gray-600 text-sm mb-4">A 1-second delay can cost you 7% in conversions. Here is how to fix it...</p>
+                    <p class="text-xs text-gray-400">Oct 15, 2023</p>
+                </div>
+            </div>
+            <div class="saas-card overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                <img src="/img/blogs/technology.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Blog 3">
+                <div class="p-6">
+                    <p class="text-xs text-blue-600 font-bold uppercase mb-2">SaaS Growth</p>
+                    <h3 class="text-xl font-bold mb-3">Building a High-Ticket Landing Page</h3>
+                    <p class="text-gray-600 text-sm mb-4">How to position your SaaS as a premium solution rather than a cheap tool...</p>
+                    <p class="text-xs text-gray-400">Oct 20, 2023</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 📈 9. FINAL CTA (Psychology Optimized) -->
-    <section id="contact" class="py-32 px-6 text-center relative overflow-hidden">
-        <div class="absolute inset-0 blue-glow opacity-50"></div>
-        <div class="relative z-10 max-w-4xl mx-auto" data-aos="zoom-in">
-            <h2 class="text-5xl md:text-7xl font-extrabold mb-8 leading-tight">Let’s Build Something That <span class="text-gradient">Grows Your Business</span></h2>
-            <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto">Stop settling for "good enough." Let's create a high-converting digital experience that dominates your industry.</p>
-            <div class="flex flex-col items-center gap-6">
-                <a href="#" class="btn-primary px-16 py-6 rounded-full font-bold text-2xl text-white w-full sm:w-auto">Apply for Your Project</a>
-                <p class="text-sm text-gray-500 animate-pulse uppercase tracking-widest">⚠️ Only 1 slot remaining for this month</p>
+    <!-- 📢 9. CTA BANNER (BLUE STRIP) -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto bg-blue-600 rounded-3xl p-12 text-center text-white relative overflow-hidden shadow-2xl">
+            <div class="relative z-10" data-aos="zoom-in">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to scale your business?</h2>
+                <p class="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">Stop losing leads to an outdated website. Let's build your high-converting engine today.</p>
+                <a href="/contact/" class="bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-lg">Start Your Project Now</a>
             </div>
+            <!-- Background Decoration -->
+            <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-50 -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-700 rounded-full blur-3xl opacity-50 translate-x-1/2 translate-y-1/2"></div>
         </div>
     </section>
 
     <!-- 📞 10. FOOTER -->
-    <footer class="py-20 border-t border-gray-900 px-6 bg-[#080808]">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
-            <div class="col-span-1 md:col-span-2">
-                <div class="text-2xl font-extrabold mb-6">Mikes Web <span class="text-blue-500">Solutions</span></div>
-                <p class="text-gray-500 max-w-sm mb-8 leading-relaxed">
-                    Architecting the next generation of high-converting digital experiences for ambitious brands and fast-growing startups worldwide.
+    <footer class="bg-white border-t border-gray-200 pt-20 pb-10 px-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                        
+    <a href="/" class="flex items-center gap-3">
+    <img
+        class="w-14 md:w-16 h-auto"
+        src="/img/black-logo.png"
+        alt="Mikes Web Solutions Logo"
+    />
+
+    <div class="leading-tight">
+        <h1 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-black">
+            Mikes <span class="text-blue-600"> Web</span> Solutions
+        </h1>
+        
+    </div>
+</a>
+                <p class="text-gray-500 leading-relaxed">
+                    Engineering the next generation of high-converting digital experiences for ambitious SaaS brands.
                 </p>
-                <div class="flex items-center gap-4">
-                    <a href="mailto:hello@mikesweb.com" class="text-sm font-bold text-blue-400 hover:text-white transition">Let's work together →</a>
-                </div>
             </div>
             <div>
-                <h4 class="font-bold mb-6 uppercase tracking-widest text-sm">Navigation</h4>
-                <ul class="text-gray-500 space-y-4">
-                    <li><a href="#home" class="hover:text-white transition">Home</a></li>
-                    <li><a href="#services" class="hover:text-white transition">Services</a></li>
-                    <li><a href="#work" class="hover:text-white transition">Case Studies</a></li>
-                    <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Company</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="/#home" class="hover:text-blue-600 transition">Home</a></li>
+                    <li><a href="/services/" class="hover:text-blue-600 transition">Services</a></li>
+                    <li><a href="/portfolio/" class="hover:text-blue-600 transition">Portfolio</a></li>
+                    <li><a href="/resources/" class="hover:text-blue-600 transition">Resources</a></li>
+                    <li><a href="/about/" class="hover:text-blue-600 transition">About Us</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-6 uppercase tracking-widest text-sm">Connect</h4>
-                <ul class="text-gray-500 space-y-4">
-                    <li><a href="#" class="hover:text-white transition">Twitter (X)</a></li>
-                    <li><a href="#" class="hover:text-white transition">Instagram</a></li>
-                    <li><a href="#" class="hover:text-white transition">LinkedIn</a></li>
-                    <li><a href="#" class="hover:text-white transition">Dribbble</a></li>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Services</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="/services/#web-design" class="hover:text-blue-600 transition">SaaS Design</a></li>
+                    <li><a href="/services/#landing-pages" class="hover:text-blue-600 transition">Landing Pages</a></li>
+                    <li><a href="/services/#web-design" class="hover:text-blue-600 transition">UI/UX Audit</a></li>
+                    <li><a href="/services/#optimization" class="hover:text-blue-600 transition">Performance SEO</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Contact</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="mailto:mikeswebsolution@gmail.com">mikeswebsolution@gmail.com</a> </li>
+                    <li><a href="tel:+923261375815">+923261375815</a></li>
+                    <li>Vehari, Punjab, PK</li>
                 </ul>
             </div>
         </div>
-        <div class="container mx-auto mt-20 pt-8 border-t border-gray-900 text-center text-gray-600 text-xs uppercase tracking-widest">
-            &copy; 2024 Mikes Web Solutions. All rights reserved. Designed for Growth.
+        <div class="container mx-auto pt-8 border-t border-gray-100 text-center text-gray-400 text-xs uppercase tracking-widest">
+            &copy; 2026 Mikes Web Solutions. All rights reserved.
         </div>
     </footer>
 
