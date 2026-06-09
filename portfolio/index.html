@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Case Studies & Proven Results | Mikes Web Solutions</title>
+    <meta name="description" content="See how we transform SaaS and E-commerce businesses through high-converting design and strategic UI/UX.">
+      <link rel="icon" type="image/x-icon" href="/img/logo.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+ 
+    
+    <!-- ✅ FIXED: Added the 'src' attribute correctly here -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        :root {
+            --bg-light: #f8fafc;
+            --accent-blue: #2563eb;
+            --text-dark: #0f172a;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+        }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+        
+        .saas-card { 
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 16px;
+        }
+        .saas-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .btn-primary {
+            background-color: var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+        }
+        .filter-btn.active {
+            background-color: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+        /* Timeline Line */
+        .process-line {
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .process-line { display: none; }
+        }
+    </style>
+</head>
+<body
+    x-data="Object.assign(portfolioApp(), { scrolled: false, mobileMenu: false })"
+    @scroll.window="scrolled = (window.pageYOffset > 20)"
+>
+
+   <!-- 🧠 1. NAVBAR -->
+    <nav :class="scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'" 
+         class="fixed w-full z-50 transition-all duration-500 px-6 md:px-12 flex justify-between items-center">
+        
+    <a href="/" class="flex items-center gap-3">
+    <img
+        class="w-14 md:w-16 h-auto"
+        src="/img/black-logo.png"
+        alt="Mikes Web Solutions Logo"
+    />
+
+    <div class="leading-tight">
+        <h1 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-black">
+            Mikes<span class="text-blue-600"> Web </span>Solutions
+        </h1>
+        <p class="text-xs text-gray-500 dark:text-gray-400 tracking-wider uppercase">
+            Websites That Bring You Customers
+        </p>
+    </div>
+</a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-10 font-medium text-sm text-gray-600">
+            <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
+            <a href="/services/" class="hover:text-blue-600 transition-colors">Services</a>
+            <a href="/portfolio/" class="hover:text-blue-600 transition-colors">Portfolio</a>
+            <a href="/resources/" class="hover:text-blue-600 transition-colors">Resources</a>
+            <a href="/contact/" class="btn-primary px-6 py-2.5 rounded-full text-sm font-bold text-white">Start Your Project</a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <div class="md:hidden text-3xl cursor-pointer" @click="mobileMenu = !mobileMenu">
+            <span x-show="!mobileMenu">☰</span>
+            <span x-show="mobileMenu">✕</span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div x-show="mobileMenu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8 text-xl font-bold md:hidden">
+        <a href="#home" @click="mobileMenu = false" class="hover:text-blue-600 transition">Home</a>
+        <a href="/services/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Services</a>
+        <a href="/portfolio/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Portfolio</a>
+        <a href="/contact/" @click="mobileMenu = false" class="btn-primary px-10 py-4 rounded-full text-white">Apply Now</a>
+    </div>
+
+    <!-- 🚀 1. HERO SECTION (Upgraded) -->
+    <section class="relative pt-32 pb-20 px-6 text-center overflow-hidden">
+        <div class="container mx-auto" data-aos="fade-up">
+            <div class="flex justify-center mb-4">
+                <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-600 text-xs font-bold uppercase tracking-widest">Case Studies</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">Our Work & <span class="text-blue-600">Measurable Results</span></h1>
+            <p class="text-gray-600 text-lg mb-6 max-w-2xl mx-auto leading-relaxed">
+                Real projects. Measurable results. Proven growth. See how we transform complex ideas into high-converting digital experiences.
+            </p>
+            <p class="text-sm font-semibold text-gray-400 mb-10 uppercase tracking-widest">
+                ✨ Trusted by 50+ growth-focused brands
+            </p>
+            <a href="/contact/" class="btn-primary px-10 py-4 rounded-full font-bold text-white inline-block text-lg">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- 📊 2. VISUAL STATS SECTION (Upgraded) -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="saas-card p-8 text-center group" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-4xl font-extrabold text-blue-600 mb-2 group-hover:scale-110 transition-transform">50+</div>
+                <div class="text-gray-500 text-sm font-semibold uppercase tracking-wide">Projects Delivered</div>
+            </div>
+            <div class="saas-card p-8 text-center group" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-4xl font-extrabold text-blue-600 mb-2 group-hover:scale-110 transition-transform">20+</div>
+                <div class="text-gray-500 text-sm font-semibold uppercase tracking-wide">Global Clients</div>
+            </div>
+            <div class="saas-card p-8 text-center group" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-4xl font-extrabold text-blue-600 mb-2 group-hover:scale-110 transition-transform">+35%</div>
+                <div class="text-gray-500 text-sm font-semibold uppercase tracking-wide">Avg. Conversion Lift</div>
+            </div>
+            <div class="saas-card p-8 text-center group" data-aos="fade-up" data-aos-delay="400">
+                <div class="text-4xl font-extrabold text-blue-600 mb-2 group-hover:scale-110 transition-transform">100%</div>
+                <div class="text-gray-500 text-sm font-semibold uppercase tracking-wide">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎯 3. FILTER SYSTEM -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="flex flex-wrap justify-center gap-3">
+            <template x-for="cat in categories" :key="cat">
+                <button 
+                    @click="filter = cat" 
+                    :class="filter === cat ? 'active' : 'bg-white text-gray-600'" 
+                    class="filter-btn px-6 py-2 rounded-full text-sm font-bold border border-gray-200 transition-all duration-300 hover:border-blue-600">
+                    <span x-text="cat"></span>
+                </button>
+            </template>
+        </div>
+    </div>
+
+    <!-- 🖼️ 4. PROJECT GRID (THE CORE FIX) -->
+    <section class="container mx-auto px-6 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <template x-for="project in filteredProjects" :key="project.id">
+                <div class="saas-card group relative overflow-hidden cursor-pointer" @click="openProject(project)" data-aos="zoom-in">
+                    <!-- Image with Zoom Effect -->
+                    <div class="relative h-72 overflow-hidden">
+                        <img :src="project.image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" :alt="project.title">
+                        
+                        <!-- Pro Hover Overlay -->
+                        <div class="absolute inset-0 bg-blue-600/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <span class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold text-sm shadow-xl">View Case Study →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-blue-600 uppercase tracking-widest px-2 py-1 bg-blue-50 rounded" x-text="project.category"></span>
+                            <span class="text-xs font-bold text-green-600 flex items-center gap-1">
+                                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                                <span x-text="project.shortResult"></span>
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors" x-text="project.title"></h3>
+                        <p class="text-gray-500 text-sm line-clamp-2 leading-relaxed" x-text="project.description"></p>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- 💬 5. TESTIMONIALS (TRUST BUILDER) -->
+    <section class="py-24 bg-white px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">What Founders Say</h2>
+                <p class="text-gray-600">The results speak louder than our words.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="saas-card p-8" data-aos="fade-up">
+                    <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-8 text-lg leading-relaxed">"Mikes didn't just give us a website; they gave us a lead generation machine. Our sign-ups increased by 140% within two months."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?u=1" class="w-12 h-12 rounded-full border-2 border-blue-600" alt="Client">
+                        <div class="text-left">
+                            <p class="font-bold text-gray-900">Sarah Jenkins</p>
+                            <p class="text-xs text-gray-500 uppercase font-bold">CEO at Bloom SaaS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="saas-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-8 text-lg leading-relaxed">"The level of detail in the UI/UX is unmatched. They understood our users' pain points and solved them with design."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?u=2" class="w-12 h-12 rounded-full border-2 border-blue-600" alt="Client">
+                        <div class="text-left">
+                            <p class="font-bold text-gray-900">Mark Thompson</p>
+                            <p class="text-xs text-gray-500 uppercase font-bold">Founder of Nexus</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="saas-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-8 text-lg leading-relaxed">"Professional, fast, and conversion-focused. Our bounce rate dropped by 22% instantly after the launch."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?u=3" class="w-12 h-12 rounded-full border-2 border-blue-600" alt="Client">
+                        <div class="text-left">
+                            <p class="font-bold text-gray-900">Elena Rodriguez</p>
+                            <p class="text-xs text-gray-500 uppercase font-bold">CMO at TechFlow</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🧪 6. VISUAL PROCESS SECTION (SaaS Style) -->
+    <section class="py-24 px-6 container mx-auto overflow-hidden">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Our Proven Growth Process</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">We don't guess. We follow a strategic framework to ensure every pixel drives profit.</p>
+        </div>
+        
+        <div class="relative grid grid-cols-1 md:grid-cols-5 gap-8">
+            <div class="process-line"></div>
+            
+            <!-- Step 1 -->
+            <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">01</div>
+                <h4 class="font-bold text-lg mb-2">Discovery</h4>
+                <p class="text-gray-500 text-sm px-4">Auditing KPIs, competitors, and user psychology.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">02</div>
+                <h4 class="font-bold text-lg mb-2">Strategy</h4>
+                <p class="text-gray-500 text-sm px-4">Mapping the high-conversion user journey.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">03</div>
+                <h4 class="font-bold text-lg mb-2">High-Fi Design</h4>
+                <p class="text-gray-500 text-sm px-4">Crafting premium UI that screams authority.</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">04</div>
+                <h4 class="font-bold text-lg mb-2">Development</h4>
+                <p class="text-gray-500 text-sm px-4">Clean code optimized for speed and SEO.</p>
+            </div>
+            <!-- Step 5 -->
+            <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="500">
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">05</div>
+                <h4 class="font-bold text-lg mb-2">Optimization</h4>
+                <p class="text-gray-500 text-sm px-4">A/B testing and scaling the conversion rate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📢 7. FINAL CTA (Scarcity Boost) -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto bg-gray-900 rounded-[32px] p-12 text-center text-white relative overflow-hidden shadow-2xl border border-gray-800">
+            <div class="relative z-10" data-aos="zoom-in">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold uppercase tracking-widest mb-6 border border-red-500/30">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                    </span>
+                    Only 1–2 project slots available this month
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Be Our Next Success Story?</h2>
+                <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">Stop losing leads to an outdated website. Let's build your high-converting revenue engine today.</p>
+                <a href="/contact/" class="bg-blue-600 text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-blue-700 transition shadow-xl inline-block">Apply for Your Project</a>
+            </div>
+            <div class="absolute top-0 right-0 w-80 h-80 bg-blue-600 rounded-full blur-[120px] opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
+        </div>
+    </section>
+
+      <!-- 📞 10. FOOTER -->
+    <footer class="bg-white border-t border-gray-200 pt-20 pb-10 px-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                        
+    <a href="/" class="flex items-center gap-3">
+    <img
+        class="w-14 md:w-16 h-auto"
+        src="/img/black-logo.png"
+        alt="Mikes Web Solutions Logo"
+    />
+
+    <div class="leading-tight">
+        <h1 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-black">
+            Mikes <span class="text-blue-600"> Web</span> Solutions
+        </h1>
+        
+    </div>
+</a>
+                <p class="text-gray-500 leading-relaxed">
+                    Engineering the next generation of high-converting digital experiences for ambitious SaaS brands.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Company</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="/#home" class="hover:text-blue-600 transition">Home</a></li>
+                    <li><a href="/services/" class="hover:text-blue-600 transition">Services</a></li>
+                    <li><a href="/portfolio/" class="hover:text-blue-600 transition">Portfolio</a></li>
+                    <li><a href="/resources/" class="hover:text-blue-600 transition">Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Services</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="/services/#web-design" class="hover:text-blue-600 transition">SaaS Design</a></li>
+                    <li><a href="/services/#landing-pages" class="hover:text-blue-600 transition">Landing Pages</a></li>
+                    <li><a href="/services/#web-design" class="hover:text-blue-600 transition">UI/UX Audit</a></li>
+                    <li><a href="/services/#optimization" class="hover:text-blue-600 transition">Performance SEO</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Contact</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="mailto:mikeswebsolution@gmail.com">mikeswebsolution@gmail.com</a> </li>
+                    <li><a href="tel:+923261375815">+923261375815</a></li>
+                    <li>Vehari, Punjab, PK</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto pt-8 border-t border-gray-100 text-center text-gray-400 text-xs uppercase tracking-widest">
+            &copy; 2026 Mikes Web Solutions. All rights reserved.
+        </div>
+    </footer>
+
+
+    <!-- 📊 8. CASE STUDY MODAL (THE CONVINCER) -->
+    <div x-show="isOpen" 
+         x-transition:enter="transition ease-out duration-300" 
+         x-transition:enter-start="opacity-0" 
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200" 
+         x-transition:leave-start="opacity-100" 
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-[100] overflow-y-auto bg-white" 
+         style="display: none;">
+        
+        <div class="fixed top-0 right-0 p-6 z-[110]">
+            <button @click="isOpen = false" class="w-12 h-12 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center text-2xl font-bold hover:bg-gray-200 transition">✕</button>
+        </div>
+
+        <div class="container mx-auto px-6 py-20">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Left: Visuals -->
+                <div class="space-y-6 sticky top-20">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img :src="selectedProject.image" class="w-full" alt="Project Main">
+                    </div>
+                   
+                </div>
+
+                <!-- Right: Story -->
+                <div class="max-w-2xl">
+                    <span class="text-blue-600 font-bold uppercase tracking-widest text-sm" x-text="selectedProject.category"></span>
+                    <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 mt-2 mb-6 leading-tight" x-text="selectedProject.title"></h2>
+                    
+                    <div class="space-y-12">
+                        <!-- Overview -->
+                        <section>
+                            <h4 class="text-xl font-bold mb-3 text-gray-900 flex items-center gap-2">
+                                <span class="w-2 h-6 bg-blue-600 rounded-full"></span> Project Overview
+                            </h4>
+                            <p class="text-gray-600 leading-relaxed text-lg" x-text="selectedProject.overview"></p>
+                        </section>
+
+                        <!-- Problem -->
+                        <section class="bg-red-50 p-8 rounded-3xl border-l-8 border-red-500">
+                            <h4 class="text-xl font-bold mb-3 text-red-900">The Problem</h4>
+                            <p class="text-red-700 leading-relaxed text-lg" x-text="selectedProject.problem"></p>
+                        </section>
+
+                        <!-- Solution -->
+                        <section class="bg-blue-50 p-8 rounded-3xl border-l-8 border-blue-500">
+                            <h4 class="text-xl font-bold mb-3 text-blue-900">Our Solution</h4>
+                            <p class="text-blue-700 leading-relaxed text-lg" x-text="selectedProject.solution"></p>
+                        </section>
+
+                        <!-- Results -->
+                        <section class="bg-green-50 p-8 rounded-3xl border-l-8 border-green-500">
+                            <h4 class="text-xl font-bold mb-4 text-green-900">The Results</h4>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="text-center p-6 bg-white rounded-2xl shadow-sm">
+                                    <div class="text-3xl font-extrabold text-green-600" x-text="selectedProject.shortResult"></div>
+                                    <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Conversion Lift</div>
+                                </div>
+                                <div class="text-center p-6 bg-white rounded-2xl shadow-sm">
+                                    <div class="text-3xl font-extrabold text-green-600">+140%</div>
+                                    <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Lead Growth</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Testimonial -->
+                        <section class="italic text-gray-600 text-2xl border-t pt-12 leading-relaxed">
+                            " <span x-text="selectedProject.testimonial"></span> "
+                            <div class="mt-6 not-italic font-bold text-gray-900 text-lg">— CEO of Project Client</div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+
+        function portfolioApp() {
+            return {
+                filter: 'All',
+                isOpen: false,
+                selectedProject: {},
+                categories: ['All', 'SaaS', 'E-commerce', 'Landing Page', 'UI/UX'],
+                projects: [
+                    {
+                        id: 1,
+                        title: 'Fintech Dashboard Redesign',
+                        category: 'SaaS',
+                        shortResult: '+30% Conversion',
+                        description: 'A complete overhaul of a complex financial dashboard to improve user retention and clarity.',
+                        image: '/img/portfolio/2.png',
+                        overview: 'A leading Fintech startup was struggling with high churn rates during their onboarding process.',
+                        problem: 'The original dashboard was cluttered and confusing, leading to a massive drop-off in user sign-ups.',
+                        solution: 'We implemented a streamlined 3-step onboarding wizard and reduced cognitive load by 40%.',
+                        testimonial: 'This project doubled our active users within the first 30 days of launch.'
+                    },
+                    {
+                        id: 2,
+                        title: 'EcoShop E-commerce Scale',
+                        category: 'E-commerce',
+                        shortResult: '+40% Revenue',
+                        description: 'Transforming a slow Shopify store into a high-performance revenue machine.',
+                        image: '/img/portfolio/1.png',
+                        overview: 'EcoShop had amazing products but a checkout process that felt outdated and slow.',
+                        problem: 'High cart abandonment rates (75%) due to slow mobile loading and complex checkout.',
+                        solution: 'Optimized mobile checkout, integrated one-click payments, and cut load time to 1.2s.',
+                        testimonial: 'Our mobile sales jumped by 40% almost overnight. Absolute game changer.'
+                    },
+                    {
+                        id: 3,
+                        title: 'AI Writer Landing Page',
+                        category: 'Landing Page',
+                        shortResult: '+140% Signups',
+                        description: 'A high-ticket landing page designed to capture early-stage beta users for an AI tool.',
+                        image: '/img/portfolio/3.png',
+                        overview: 'An AI startup needed to validate their product with a high-converting waiting list.',
+                        problem: 'They used a generic template that looked "cheap" and didn\'t attract high-ticket beta users.',
+                        solution: 'Created a premium, dark-themed design with psychological triggers and strong value propositions.',
+                        testimonial: 'We hit 5,000 signups in 48 hours. The design did all the heavy lifting.'
+                    },
+                    {
+                        id: 4,
+                        title: 'HealthTrack Mobile App',
+                        category: 'UI/UX',
+                        shortResult: '-22% Bounce Rate',
+                        description: 'User-centric interface design for a health tracking application.',
+                        image: '/img/portfolio/4.png',
+                        overview: 'Redesigning the user experience for a health app to encourage daily usage.',
+                        problem: 'Users found it tedious to log health metrics, leading to high drop-offs after 3 days.',
+                        solution: 'Introduced "Gamified Logging" and a simplified one-tap entry system.',
+                        testimonial: 'Retention increased by 22% because the app finally feels intuitive and fun.'
+                    }
+                ],
+                get filteredProjects() {
+                    if (this.filter === 'All') return this.projects;
+                    return this.projects.filter(p => p.category === this.filter);
+                },
+                openProject(project) {
+                    this.selectedProject = project;
+                    this.isOpen = true;
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO META TAGS (OPTIMIZED FOR CONVERSION) -->
+    <title>Apply for Your Project | Mikes Web Solutions - Premium SaaS Design</title>
+    <meta name="description" content="Stop losing leads to poor design. Apply to work with Mikes Web Solutions. We build high-converting SaaS websites and UI/UX that scale revenue. Only 2 slots available this month.">
+    <meta name="keywords" content="Apply for web design, SaaS agency contact, high converting landing pages, premium UI/UX agency, revenue driven design">
+      <link rel="icon" type="image/x-icon" href="/img/logo.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Alpine.js for interactivity -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-light: #f8fafc;
+            --accent-blue: #2563eb;
+            --text-dark: #0f172a;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+        
+        /* Elite SaaS Card Polish */
+        .saas-card { 
+            background: white;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 16px;
+        }
+        .saas-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        /* Button Polish */
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* Input UX Polish */
+        .input-field {
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            background-color: #fff;
+        }
+
+        /* Background Accents */
+        .bg-gradient-soft {
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.05), transparent),
+                        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.05), transparent);
+        }
+    </style>
+</head>
+<body x-data="{ scrolled: false, mobileMenu: false, submitted: false }" @scroll.window="scrolled = (window.pageYOffset > 20)" class="bg-gradient-soft">
+
+
+  <!-- 🧠 1. NAVBAR -->
+    <nav :class="scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'" 
+         class="fixed w-full z-50 transition-all duration-500 px-6 md:px-12 flex justify-between items-center">
+        
+    <a href="/" class="flex items-center gap-3">
+    <img
+        class="w-14 md:w-16 h-auto"
+        src="/img/black-logo.png"
+        alt="Mikes Web Solutions Logo"
+    />
+
+    <div class="leading-tight">
+        <h1 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-black">
+            Mikes<span class="text-blue-600"> Web </span>Solutions
+        </h1>
+        <p class="text-xs text-gray-500 dark:text-gray-400 tracking-wider uppercase">
+            Websites That Bring You Customers
+        </p>
+    </div>
+</a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-10 font-medium text-sm text-gray-600">
+            <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
+            <a href="/services/" class="hover:text-blue-600 transition-colors">Services</a>
+            <a href="/portfolio/" class="hover:text-blue-600 transition-colors">Portfolio</a>
+            <a href="/resources/" class="hover:text-blue-600 transition-colors">Resources</a>
+            <a href="/contact/" class="btn-primary px-6 py-2.5 rounded-full text-sm font-bold text-white">Start Your Project</a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <div class="md:hidden text-3xl cursor-pointer" @click="mobileMenu = !mobileMenu">
+            <span x-show="!mobileMenu">☰</span>
+            <span x-show="mobileMenu">✕</span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div x-show="mobileMenu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8 text-xl font-bold md:hidden">
+        <a href="#home" @click="mobileMenu = false" class="hover:text-blue-600 transition">Home</a>
+        <a href="/services/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Services</a>
+        <a href="/portfolio/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Portfolio</a>
+        <a href="/contact/" @click="mobileMenu = false" class="btn-primary px-10 py-4 rounded-full text-white">Apply Now</a>
+    </div>
+    <!-- 🚀 1. HERO SECTION (VISUAL + AUTHORITY) -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left" data-aos="fade-right">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                    Let’s Build Something That <span class="text-blue-600">Grows Your Business</span>
+                </h1>
+                <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-8">
+                    Stop settling for a "pretty" website. We engineer high-performance digital experiences that turn visitors into paying clients.
+                </p>
+                
+                <!-- Micro-Proof Badges -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 text-sm font-semibold text-gray-700">
+                        <span class="text-yellow-500">⭐</span> 5.0 Client Rating
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 text-sm font-semibold text-gray-700">
+                        <span class="text-blue-500">⚡</span> Fast Delivery
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 text-sm font-semibold text-gray-700">
+                        <span class="text-green-500">🔒</span> Secure Process
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center lg:justify-start gap-3 text-sm font-medium text-gray-500">
+                    <div class="flex -space-x-3">
+                        <img class="w-10 h-10 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=1" alt="">
+                        <img class="w-10 h-10 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=2" alt="">
+                        <img class="w-10 h-10 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=3" alt="">
+                    </div>
+                    <span>Trusted by 50+ growing brands worldwide</span>
+                </div>
+            </div>
+            <div class="relative" data-aos="fade-left">
+                <!-- Hero Visual -->
+                <img src="https://cdn-icons-png.flaticon.com/512/6134/6134065.png" class="w-full max-w-lg mx-auto animate-pulse" alt="Contact Illustration">
+                <div class="absolute -top-4 -right-4 bg-blue-600 text-white p-4 rounded-2xl shadow-xl font-bold rotate-12">
+                    Apply Now!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📩 2. MAIN CONTACT SECTION -->
+    <section class="py-12 px-6">
+        <div class="container mx-auto grid lg:grid-cols-5 gap-12 items-start">
+<div x-data="contactForm()"
+     class="lg:col-span-3 saas-card p-8 md:p-12 relative overflow-hidden">
+
+    <!-- Success Message -->
+    <div x-show="submitted"
+         x-transition
+         class="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-8">
+
+        <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mb-6">
+            ✓
+        </div>
+
+        <h3 class="text-3xl font-bold mb-2">Application Received!</h3>
+
+        <p class="text-gray-600 mb-8">
+            Thanks for reaching out. We'll review your details and contact you within 24 hours.
+        </p>
+
+        <button @click="submitted = false"
+                class="text-blue-600 font-bold underline">
+            Send another message
+        </button>
+    </div>
+
+    <!-- FORM -->
+    <form @submit.prevent="submitForm"
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+
+        <input name="fullName" type="text" placeholder="John Doe"
+               class="input-field p-3 rounded-xl bg-gray-50" required>
+
+        <input name="email" type="email" placeholder="john@company.com"
+               class="input-field p-3 rounded-xl bg-gray-50" required>
+
+        <input name="company" type="text" placeholder="SaaS Co."
+               class="input-field p-3 rounded-xl bg-gray-50">
+
+        <select name="projectType"
+                class="input-field p-3 rounded-xl bg-gray-50" required>
+            <option value="">Select an option</option>
+            <option value="website">Full Website</option>
+            <option value="landing">Landing Page</option>
+            <option value="redesign">Redesign</option>
+            <option value="other">Other</option>
+        </select>
+
+        <input name="website" type="url" placeholder="https://example.com"
+               class="md:col-span-2 input-field p-3 rounded-xl bg-gray-50">
+
+        <select name="budget"
+                class="md:col-span-2 input-field p-3 rounded-xl bg-gray-50" required>
+            <option value="">Select your budget</option>
+            <option value="100-500">$100 – $500</option>
+            <option value="500-1500">$500 – $1,500</option>
+            <option value="1500+">$1,500+</option>
+        </select>
+
+        <textarea name="message" rows="4"
+                  placeholder="Tell us about your project"
+                  class="md:col-span-2 input-field p-3 rounded-xl bg-gray-50"
+                  required></textarea>
+
+        <div class="md:col-span-2 flex flex-col items-center gap-4 mt-4">
+
+            <button type="submit"
+                    class="btn-primary w-full md:w-auto px-12 py-4 rounded-full text-white font-bold text-lg"
+                    :disabled="loading">
+
+                <span x-show="!loading">Apply for Your Project</span>
+                <span x-show="loading">Sending...</span>
+
+            </button>
+
+            <p class="text-sm text-gray-500 flex items-center gap-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                We respond within 24 hours
+            </p>
+
+        </div>
+
+    </form>
+</div>
+            <!-- RIGHT SIDE: INFO PANEL (2 Cols) -->
+            <div class="lg:col-span-2 space-y-6" data-aos="fade-left">
+                <div class="saas-card p-8">
+                    <h3 class="text-2xl font-bold mb-6">Contact Info</h3>
+                    <div class="space-y-4">
+                        <!-- Info Item -->
+                        <div class="flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50 transition-all border border-transparent hover:border-gray-100">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl">📧</div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase">Email Us</p>
+                                <p class="font-semibold text-gray-800">mikeswebsolution@gmail.com</p>
+                            </div>
+                        </div>
+                        <!-- Info Item -->
+                        <div class="flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50 transition-all border border-transparent hover:border-gray-100">
+                            <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-xl">📍</div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase">Location</p>
+                                <p class="font-semibold text-gray-800">Remote / Worldwide</p>
+                            </div>
+                        </div>
+                        <!-- Info Item -->
+                        <div class="flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50 transition-all border border-transparent hover:border-gray-100">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xl">⏱</div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase">Response Time</p>
+                                <p class="font-semibold text-gray-800">Within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <p class="text-sm text-gray-500 flex items-center gap-2">🔒 No spam. 100% confidential.</p>
+                    </div>
+                </div>
+
+                <!-- 💼 3. QUICK CONTACT OPTIONS -->
+                <div class="saas-card p-8 bg-gray-900 text-white">
+                    <h4 class="font-bold mb-6 text-center text-lg">Prefer direct contact?</h4>
+                    <div class="grid grid-cols-1 gap-4">
+                        <a href="tel:+923261375815" class="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 p-4 rounded-xl transition font-bold text-white">
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="mailto:mikeswebsolution@gmail.com" class="flex items-center justify-center gap-3 border-2 border-gray-700 hover:border-gray-500 p-4 rounded-xl transition font-bold text-white">
+                            <span>Email Directly</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-center gap-3 bg-blue-700 hover:bg-blue-800 p-4 rounded-xl transition font-bold text-white">
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🧠 4. WHY WORK WITH US (PREMIUM GRID) -->
+    <section class="py-24 bg-white px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center" data-aos="fade-up">Why Work With Us?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="saas-card p-8 text-center">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">⚡</div>
+                    <h4 class="font-bold text-xl mb-3">Fast Turnaround</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">High-quality results delivered without the typical agency lag.</p>
+                </div>
+                <div class="saas-card p-8 text-center">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">🎯</div>
+                    <h4 class="font-bold text-xl mb-3">Conversion Focused</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">We design for revenue and ROI, not just for aesthetic portfolios.</p>
+                </div>
+                <div class="saas-card p-8 text-center">
+                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">💬</div>
+                    <h4 class="font-bold text-xl mb-3">Direct Communication</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Work directly with the expert, not a middle-man project manager.</p>
+                </div>
+                <div class="saas-card p-8 text-center">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">📈</div>
+                    <h4 class="font-bold text-xl mb-3">Scalable Solutions</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Future-proof infrastructure that grows as your user base expands.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💬 5. TESTIMONIAL (HIGH-END) -->
+    <section class="py-24 px-6 bg-blue-50">
+        <div class="container mx-auto text-center max-w-4xl" data-aos="zoom-in">
+            <div class="mb-8 flex justify-center">
+                <div class="flex text-yellow-400 text-2xl">★★★★★</div>
+            </div>
+            <p class="text-2xl md:text-4xl font-medium italic text-gray-800 mb-10 leading-relaxed">
+                “Working with Mikes Web Solutions was the best decision for our business. They didn't just build a site; they built a <span class="text-blue-600 font-bold">lead-generation machine.</span>”
+            </p>
+            <div class="flex flex-col items-center gap-4">
+                <img src="https://i.pravatar.cc/100?u=1" class="w-20 h-20 rounded-full border-4 border-white shadow-lg" alt="User">
+                <div>
+                    <p class="font-bold text-xl text-gray-900">Sarah Jenkins</p>
+                    <p class="text-blue-600 font-medium">CEO at Bloom SaaS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ❓ 6. FAQ (INTERACTIVE ACCORDION) -->
+    <section class="py-24 px-6 container mx-auto max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Common Questions</h2>
+        <div class="space-y-4" x-data="{ active: null }">
+            <!-- FAQ 1 -->
+            <div class="saas-card overflow-hidden">
+                <button @click="active = (active === 1 ? null : 1)" class="w-full p-6 text-left flex justify-between items-center font-bold text-lg hover:text-blue-600 transition-colors">
+                    How long does a project typically take?
+                    <span x-text="active === 1 ? '−' : '+'" class="text-blue-600 text-2xl"></span>
+                </button>
+                <div x-show="active === 1" x-collapse class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
+                    Depending on complexity, a high-converting landing page takes 3-5 days, while a full SaaS website takes 2-4 weeks.
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="saas-card overflow-hidden">
+                <button @click="active = (active === 2 ? null : 2)" class="w-full p-6 text-left flex justify-between items-center font-bold text-lg hover:text-blue-600 transition-colors">
+                    What happens after I submit the form?
+                    <span x-text="active === 2 ? '−' : '+'" class="text-blue-600 text-2xl"></span>
+                </button>
+                <div x-show="active === 2" x-collapse class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
+                    We review your project details and budget. If we're a good fit, we'll email you to schedule a brief 15-minute discovery call to map out your growth strategy.
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="saas-card overflow-hidden">
+                <button @click="active = (active === 3 ? null : 3)" class="w-full p-6 text-left flex justify-between items-center font-bold text-lg hover:text-blue-600 transition-colors">
+                    Do you work with international clients?
+                    <span x-text="active === 3 ? '−' : '+'" class="text-blue-600 text-2xl"></span>
+                </button>
+                <div x-show="active === 3" x-collapse class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
+                    Yes! We operate fully remotely and work with ambitious founders from the USA, UK, Europe, and Asia.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📢 7. FINAL CTA (HIGH-END) -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto bg-blue-600 rounded-[32px] p-12 text-center text-white shadow-2xl relative overflow-hidden" data-aos="zoom-in">
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Scale Your Revenue?</h2>
+                <p class="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">Let’s turn your idea into a high-converting digital experience. We are currently accepting new applications.</p>
+                <div class="flex flex-col items-center gap-4">
+                    <a href="#top" class="bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-lg">Apply for Your Project</a>
+                    <p class="text-blue-200 text-sm font-medium">🔥 Only 1–2 slots available for this month</p>
+                </div>
+            </div>
+            <!-- Decorative Gradient -->
+            <div class="absolute top-0 left-0 w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-800 rounded-full blur-3xl opacity-50 translate-x-1/2 translate-y-1/2"></div>
+        </div>
+    </section>
+   <!-- 📞 10. FOOTER -->
+    <footer class="bg-white border-t border-gray-200 pt-20 pb-10 px-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                        
+    <a href="/" class="flex items-center gap-3">
+    <img
+        class="w-14 md:w-16 h-auto"
+        src="/img/black-logo.png"
+        alt="Mikes Web Solutions Logo"
+    />
+
+    <div class="leading-tight">
+        <h1 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-black">
+            Mikes <span class="text-blue-600"> Web</span> Solutions
+        </h1>
+        
+    </div>
+</a>
+                <p class="text-gray-500 leading-relaxed">
+                    Engineering the next generation of high-converting digital experiences for ambitious SaaS brands.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Company</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="/#home" class="hover:text-blue-600 transition">Home</a></li>
+                    <li><a href="/services/" class="hover:text-blue-600 transition">Services</a></li>
+                    <li><a href="/portfolio/" class="hover:text-blue-600 transition">Portfolio</a></li>
+                    <li><a href="/resources/" class="hover:text-blue-600 transition">Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Services</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="/services/#web-design" class="hover:text-blue-600 transition">SaaS Design</a></li>
+                    <li><a href="/services/#landing-pages" class="hover:text-blue-600 transition">Landing Pages</a></li>
+                    <li><a href="/services/#web-design" class="hover:text-blue-600 transition">UI/UX Audit</a></li>
+                    <li><a href="/services/#optimization" class="hover:text-blue-600 transition">Performance SEO</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-900">Contact</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li><a href="mailto:mikeswebsolution@gmail.com">mikeswebsolution@gmail.com</a> </li>
+                    <li><a href="tel:+923261375815">+923261375815</a></li>
+                    <li>Vehari, Punjab, PK</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto pt-8 border-t border-gray-100 text-center text-gray-400 text-xs uppercase tracking-widest">
+            &copy; 2026 Mikes Web Solutions. All rights reserved.
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+    </script>
+  <script>
+function contactForm() {
+    return {
+        submitted: false,
+        loading: false,
+
+        async submitForm(event) {
+
+            this.loading = true;
+
+            const formData = new FormData(event.target);
+
+            try {
+                const response = await fetch(
+                    "https://script.google.com/macros/s/AKfycbypMi21h_zQNiXiuA2W-W1tfmRaNIhHya5HNusIqzS4k1ISETXB2CkgPLxCSqummhkj/exec",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+                if (response.ok) {
+                    this.submitted = true;
+                    event.target.reset();
+                } else {
+                    alert("Submission failed");
+                }
+
+            } catch (error) {
+                console.error(error);
+                alert("Network error");
+            }
+
+            this.loading = false;
+        }
+    }
+}
+</script>
+
+</body>
+</html>
