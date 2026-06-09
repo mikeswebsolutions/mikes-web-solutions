@@ -89,7 +89,7 @@
         
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-10 font-medium text-sm text-gray-600">
-            <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
+            <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
             <a href="/services/" class="hover:text-blue-600 transition-colors">Services</a>
             <a href="/portfolio/" class="hover:text-blue-600 transition-colors">Portfolio</a>
             <a href="/resources/" class="hover:text-blue-600 transition-colors">Resources</a>
@@ -105,7 +105,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div x-show="mobileMenu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8 text-xl font-bold md:hidden">
-        <a href="#home" @click="mobileMenu = false" class="hover:text-blue-600 transition">Home</a>
+        <a href="/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Home</a>
         <a href="/services/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Services</a>
         <a href="/portfolio/" @click="mobileMenu = false" class="hover:text-blue-600 transition">Portfolio</a>
         <a href="/contact/" @click="mobileMenu = false" class="btn-primary px-10 py-4 rounded-full text-white">Apply Now</a>
